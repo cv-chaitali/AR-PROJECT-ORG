@@ -110,8 +110,8 @@ while True:
                     distance1 = cv2.norm(tvec1-tvec2)
                     distance2 = cv2.norm(tvec1-tvec3)
                     distance3 = np.sqrt(distance1**2+distance2**2)
-                    angle =math.degrees(math.acos((distance1**2+distance2**2-distance3**2)/(2.0*distance1*distance2)))
-                    
+                    angle = np.cos((distance1**2+distance3**2-distance2**2)/2*distance1*distance3)
+
                     print("마커 1 과 마커 2 거리:", (round(distance1,2),0,0))
                     print("마커 1 과 마커 3 거리:", (0,round(distance2,2),0))
                     
