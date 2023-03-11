@@ -82,7 +82,7 @@ while True:
                     #마커 정보 r 과 t
                     rvec1, tvec1, _ = cv2.aruco.estimatePoseSingleMarkers(corners[marker1_index], 300.0, mtx, dist)
                     rvec2, tvec2, _ = cv2.aruco.estimatePoseSingleMarkers(corners[marker2_index], 300.0, mtx, dist)
-                    distance = cv2.norm(tvec1-tvec2)-120                     
+                    distance = cv2.norm(tvec1-tvec2)                     
                     point1 = cv2.drawFrameAxes(frame, mtx, dist, rvec1, tvec1 ,  4,4)
                     point2 = cv2.drawFrameAxes(frame, mtx, dist, rvec2, tvec2 ,  4,4)
 
@@ -107,8 +107,8 @@ while True:
             
                     # 거리 계산
                     
-                    distance1 = cv2.norm(tvec1-tvec2)-120
-                    distance2 = cv2.norm(tvec1-tvec3)-1700
+                    distance1 = cv2.norm(tvec1-tvec2)
+                    distance2 = cv2.norm(tvec1-tvec3)
                     distance3 = np.sqrt(distance1**2+distance2**2)
                     angle =math.degrees(math.acos((distance1**2+distance2**2-distance3**2)/(2.0*distance1*distance2)))
                     
