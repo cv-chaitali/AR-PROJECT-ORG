@@ -154,8 +154,8 @@ while True:
             distance1 = cv2.norm(tvec1-tvec2)
             distance2 = cv2.norm(tvec1-tvec3)
             distance3 = cv2.norm(tvec2 - tvec3)
-            angle = np.arccos(((distance1**2+distance2**2-distance3**2)/2*distance1*distance2))
-            
+            angle = np.cos((distance1**2+distance3**2-distance2**2)/2*distance1*distance3)
+
             data_list.append([distance1,distance2,angle])
             filename1 = "dataset3_" + str(int(time.time())) +  "_" + str(random.randint(1, 10000)) + ".txt"  # add a timestamp to the filename
             with open("dataset3.txt", "a") as f:
